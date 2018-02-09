@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Test</string>
+
+  <string name="company">Open Web Technology</string>
+  <string name="stories">Success stories</string>
+  <string name="contact">Contact</string>
+  
+  <string name="hello">Hello, Bonjour, Hallo</string>
+  <string name="help">PLEASE TELL US HOW CAN WE HELP YOU *</string>
+  <string name="checkboxDiscuss">Id like to be contacted to discuss a potential digital project</string>
+  <string name="checkboxFindJob">Im looking for a job / master thesis</string>
+  <string name="checkboxSayHi">I just want to say Hi to</string>
+  <string name="checkboxOtherReason">Other reason</string>
+  <string name="personalData">YOUR PERSONAL DATA</string>
+  <string name="takePicture">Take a picture of your business card</string>
+  <string name="firstNameHint">First Name *</string>
+  <string name="lastNameHint">Last Name *</string>
+  <string name="companyHint">Company</string>
+  <string name="positionHint">Position</string>
+  <string name="emailHint">Email Address</string>
+  <string name="branchHint">Branch</string>
+  <string name="note">COMMENTS / NOTES</string>
+  <string name="send">Send</string>
+</resources>

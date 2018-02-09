@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <dimen name="margin_small">10dp</dimen>
+  <dimen name="margin_medium">20dp</dimen>
+  <dimen name="margin_large">120dp</dimen>
+
+  <dimen name="padding_medium">9dp</dimen>
+  <dimen name="padding_large">20dp</dimen>
+  <dimen name="padding_top">100dp</dimen>
+
+  <dimen name="imagesize_small">50dp</dimen>
+
+  <dimen name="button_width">150dp</dimen>
+  <dimen name="button_height">100dp</dimen>
+</resources>
