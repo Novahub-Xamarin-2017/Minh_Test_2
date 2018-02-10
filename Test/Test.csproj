@@ -86,7 +86,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Adapters\Adapter1.cs" />
     <Compile Include="Adapters\StoriesAdapter.cs" />
     <Compile Include="Adapters\StoriesAdapterClickEventArgs.cs" />
     <Compile Include="Adapters\StoriesAdapterViewHolder.cs" />
@@ -127,7 +126,9 @@
     </AndroidNativeLibrary>
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
-    <None Include="Properties\AndroidManifest.xml" />
+    <None Include="Properties\AndroidManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\layout\Story.axml">
       <SubType>Designer</SubType>
@@ -228,7 +229,7 @@
     <AndroidAsset Include="Assets\10_adama%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\OneMinuteOpenWT.mp4" />
+    <AndroidAsset Include="Assets\m.mp4" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\back.png" />

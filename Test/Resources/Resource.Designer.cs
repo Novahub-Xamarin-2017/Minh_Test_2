@@ -108,6 +108,9 @@ namespace Test
 			// aapt resource value: 0x7f040008
 			public const int padding_top = 2130968584;
 			
+			// aapt resource value: 0x7f04000c
+			public const int story_width = 2130968588;
+			
 			static Dimension()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

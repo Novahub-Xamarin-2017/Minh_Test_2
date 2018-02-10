@@ -27,7 +27,7 @@ namespace Test.Adapters
         {
             set
             {
-                imageButton.Background = Drawable.CreateFromStream(ItemView.Context.Assets.Open(value.Image), "");
+                imageButton.SetImageDrawable(Drawable.CreateFromStream(ItemView.Context.Assets.Open(value.Image), ""));
 
                 story = value;
             }
@@ -35,9 +35,9 @@ namespace Test.Adapters
 
         public StoriesAdapterViewHolder(View itemView) : base(itemView)
         {
-            imageButton = itemView.FindViewById<ImageButton>(Resource.Id.imebtn_story);
+            imageButton = itemView.FindViewById<ImageButton>(Resource.Id.imebtn_story);;
 
-            ItemView.FindViewById<ImageButton>(Resource.Id.imebtn_story).Click += (s,e) =>
+            imageButton.Click += (s,e) =>
             {
                 StoryClick.Invoke(itemView, new StoriesAdapterClickEventArgs() { Content = story.Content });
             };

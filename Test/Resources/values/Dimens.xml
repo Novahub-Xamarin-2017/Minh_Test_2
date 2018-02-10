@@ -12,4 +12,6 @@
 
   <dimen name="button_width">150dp</dimen>
   <dimen name="button_height">100dp</dimen>
+
+  <dimen name="story_width">400dp</dimen>
 </resources>
