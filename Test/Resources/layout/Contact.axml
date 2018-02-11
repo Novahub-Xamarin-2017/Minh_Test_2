@@ -101,7 +101,7 @@
                     <ImageButton
                         android:layout_width="@dimen/imagesize_small"
                         android:layout_height="@dimen/imagesize_small"
-                        android:id="@+id/imageButton1"
+                        android:id="@+id/imebtn_takecard"
                         android:background="@drawable/camera"
                         android:layout_marginLeft="@dimen/margin_medium"
                         android:layout_marginRight="@dimen/margin_small" />
@@ -113,6 +113,10 @@
                         android:id="@+id/textView3"
                         android:gravity="center_vertical"
                         android:layout_marginRight="@dimen/margin_medium" />
+                    <ImageView
+                        android:layout_width="@dimen/imagesize_small"
+                        android:layout_height="@dimen/imagesize_small"
+                        android:id="@+id/imev_card" />
                 </LinearLayout>
                 <LinearLayout
                     android:orientation="horizontal"
@@ -227,10 +231,10 @@
             android:paddingLeft="@dimen/margin_small"
             android:textColor="@android:color/white" />
     </RelativeLayout>
-  <fragment
-      class="Test.MenuFragment"
-      android:id="@+id/fragment"
-      android:layout_alignParentBottom="true"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content" />
+    <fragment
+        class="Test.MenuFragment"
+        android:id="@+id/fragment"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

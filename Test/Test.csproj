@@ -133,9 +133,6 @@
     <AndroidResource Include="Resources\layout\Story.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\Stories1.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\layout\Menu.axml">
       <SubType>Designer</SubType>
     </AndroidResource>

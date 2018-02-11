@@ -185,17 +185,17 @@ namespace Test
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f05001d
-			public const int btn_contact = 2131034141;
-			
-			// aapt resource value: 0x7f05001b
-			public const int btn_main = 2131034139;
+			// aapt resource value: 0x7f05001e
+			public const int btn_contact = 2131034142;
 			
 			// aapt resource value: 0x7f05001c
-			public const int btn_stories = 2131034140;
+			public const int btn_main = 2131034140;
 			
-			// aapt resource value: 0x7f050012
-			public const int button1 = 2131034130;
+			// aapt resource value: 0x7f05001d
+			public const int btn_stories = 2131034141;
+			
+			// aapt resource value: 0x7f050013
+			public const int button1 = 2131034131;
 			
 			// aapt resource value: 0x7f050006
 			public const int checkBox1 = 2131034118;
@@ -206,32 +206,35 @@ namespace Test
 			// aapt resource value: 0x7f05000a
 			public const int checkBox3 = 2131034122;
 			
-			// aapt resource value: 0x7f050013
-			public const int fragment = 2131034131;
-			
-			// aapt resource value: 0x7f05000d
-			public const int imageButton1 = 2131034125;
-			
-			// aapt resource value: 0x7f05001f
-			public const int imebtn_back = 2131034143;
-			
 			// aapt resource value: 0x7f050014
-			public const int imebtn_discover = 2131034132;
+			public const int fragment = 2131034132;
 			
-			// aapt resource value: 0x7f050019
-			public const int imebtn_numbers = 2131034137;
+			// aapt resource value: 0x7f050020
+			public const int imebtn_back = 2131034144;
 			
-			// aapt resource value: 0x7f050016
-			public const int imebtn_people = 2131034134;
-			
-			// aapt resource value: 0x7f050017
-			public const int imebtn_services = 2131034135;
-			
-			// aapt resource value: 0x7f050022
-			public const int imebtn_story = 2131034146;
+			// aapt resource value: 0x7f050015
+			public const int imebtn_discover = 2131034133;
 			
 			// aapt resource value: 0x7f05001a
-			public const int imebtn_venture = 2131034138;
+			public const int imebtn_numbers = 2131034138;
+			
+			// aapt resource value: 0x7f050017
+			public const int imebtn_people = 2131034135;
+			
+			// aapt resource value: 0x7f050018
+			public const int imebtn_services = 2131034136;
+			
+			// aapt resource value: 0x7f050023
+			public const int imebtn_story = 2131034147;
+			
+			// aapt resource value: 0x7f05000d
+			public const int imebtn_takecard = 2131034125;
+			
+			// aapt resource value: 0x7f05001b
+			public const int imebtn_venture = 2131034139;
+			
+			// aapt resource value: 0x7f05000f
+			public const int imev_card = 2131034127;
 			
 			// aapt resource value: 0x7f050000
 			public const int item_touch_helper_previous_elevation = 2131034112;
@@ -245,20 +248,20 @@ namespace Test
 			// aapt resource value: 0x7f05000c
 			public const int linearLayout3 = 2131034124;
 			
-			// aapt resource value: 0x7f05000f
-			public const int linearLayout4 = 2131034127;
+			// aapt resource value: 0x7f050010
+			public const int linearLayout4 = 2131034128;
 			
-			// aapt resource value: 0x7f050015
-			public const int linearLayout5 = 2131034133;
+			// aapt resource value: 0x7f050016
+			public const int linearLayout5 = 2131034134;
 			
-			// aapt resource value: 0x7f050018
-			public const int linearLayout6 = 2131034136;
-			
-			// aapt resource value: 0x7f050020
-			public const int pdfv_story = 2131034144;
+			// aapt resource value: 0x7f050019
+			public const int linearLayout6 = 2131034137;
 			
 			// aapt resource value: 0x7f050021
-			public const int rccv_stories = 2131034145;
+			public const int pdfv_story = 2131034145;
+			
+			// aapt resource value: 0x7f050022
+			public const int rccv_stories = 2131034146;
 			
 			// aapt resource value: 0x7f050001
 			public const int relativeLayout1 = 2131034113;
@@ -278,20 +281,20 @@ namespace Test
 			// aapt resource value: 0x7f05000e
 			public const int textView3 = 2131034126;
 			
-			// aapt resource value: 0x7f050010
-			public const int textView4 = 2131034128;
-			
 			// aapt resource value: 0x7f050011
-			public const int textView5 = 2131034129;
+			public const int textView4 = 2131034129;
 			
-			// aapt resource value: 0x7f05001e
-			public const int toolbar1 = 2131034142;
+			// aapt resource value: 0x7f050012
+			public const int textView5 = 2131034130;
+			
+			// aapt resource value: 0x7f05001f
+			public const int toolbar1 = 2131034143;
 			
 			// aapt resource value: 0x7f050002
 			public const int tv_hello = 2131034114;
 			
-			// aapt resource value: 0x7f050023
-			public const int vdv_story = 2131034147;
+			// aapt resource value: 0x7f050024
+			public const int vdv_story = 2131034148;
 			
 			static Id()
 			{
@@ -322,13 +325,10 @@ namespace Test
 			public const int Stories = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int Stories1 = 2130903045;
+			public const int Story = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int Story = 2130903046;
-			
-			// aapt resource value: 0x7f030007
-			public const int Video = 2130903047;
+			public const int Video = 2130903046;
 			
 			static Layout()
 			{
