@@ -5,10 +5,9 @@
     android:minWidth="25px"
     android:minHeight="25px">
     <ImageButton
-        android:background="@null"
-        android:src="@drawable/sicpa"
-        android:scaleType="centerInside"
-        android:layout_width="@dimen/story_width"
+        android:background="@drawable/sicpa"
+        android:layout_marginRight="@dimen/margin_small"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:id="@+id/imebtn_story" />
 </LinearLayout>

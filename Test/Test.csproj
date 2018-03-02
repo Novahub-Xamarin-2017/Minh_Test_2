@@ -30,9 +30,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
+    <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
-    <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
+    <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
     <AotAssemblies>false</AotAssemblies>
     <EnableLLVM>false</EnableLLVM>
     <BundleAssemblies>false</BundleAssemblies>
@@ -89,15 +89,17 @@
     <Compile Include="Adapters\StoriesAdapter.cs" />
     <Compile Include="Adapters\StoriesAdapterClickEventArgs.cs" />
     <Compile Include="Adapters\StoriesAdapterViewHolder.cs" />
-    <Compile Include="ContactActivity.cs" />
+    <Compile Include="Fragments\ContactFragment.cs" />
+    <Compile Include="Fragments\OpenWebFragment.cs" />
+    <Compile Include="Fragments\StoriesFragment.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MenuFragment.cs" />
     <Compile Include="Models\Extension\ActivityExtension.cs" />
+    <Compile Include="Models\Extension\ViewExtension.cs" />
     <Compile Include="Models\Story.cs" />
     <Compile Include="PdfActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StoriesActivity.cs" />
     <Compile Include="VideoActivity.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -142,17 +144,20 @@
     <AndroidResource Include="Resources\layout\Video.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\Contact.axml">
+    <AndroidResource Include="Resources\layout\Main.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\Stories.axml">
+    <AndroidResource Include="Resources\layout\OpenWebFragment.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\StoriesFragment.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\ContactFragment.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Main.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\values\Strings.xml" />
   </ItemGroup>
   <ItemGroup>

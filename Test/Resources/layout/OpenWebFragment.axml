@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/linearLayout2">
+    <ImageButton
+        android:background="@drawable/discover"
+        android:layout_marginRight="@dimen/margin_medium"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:id="@+id/imebtn_discover" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:id="@+id/linearLayout5">
+        <ImageButton
+            android:background="@drawable/people"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/imebtn_people" />
+        <ImageButton
+            android:background="@drawable/services"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/imebtn_services" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:id="@+id/linearLayout6">
+        <ImageButton
+            android:background="@drawable/numbers"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/imebtn_numbers" />
+        <ImageButton
+            android:background="@drawable/venture"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/imebtn_venture" />
+    </LinearLayout>
+</LinearLayout>

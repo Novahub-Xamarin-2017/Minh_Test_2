@@ -29,26 +29,5 @@ namespace Test.Models.Extension
                 activity.Finish();
             };
         }
-
-        public static void SetButton(this Activity activity)
-        {
-            activity.FindViewById<Button>(Resource.Id.btn_main).Click += delegate
-            {
-                activity.StartActivity(typeof(MainActivity));
-                activity.Finish();
-            };
-
-            activity.FindViewById<Button>(Resource.Id.btn_stories).Click += delegate
-            {
-                activity.StartActivity(typeof(StoriesActivity));
-                activity.Finish();
-            };
-
-            activity.FindViewById<Button>(Resource.Id.btn_contact).Click += delegate
-            {
-                activity.StartActivity(typeof(ContactActivity));
-                activity.Finish();
-            };
-        }
     }
 }

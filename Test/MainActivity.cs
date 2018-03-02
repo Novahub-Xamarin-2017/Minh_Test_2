@@ -14,6 +14,9 @@ using Test.Models.Extension;
 using System.Collections.Generic;
 using System.Linq;
 using Android.Content;
+using Test.Fragments;
+using Android.Runtime;
+using Android.Content.Res;
 
 namespace Test
 {
@@ -25,36 +28,42 @@ namespace Test
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.Main);
-            this.SetButton();
-            FindViewById<Button>(Resource.Id.btn_main).SetTextColor(Color.Red);
 
-            var imageButtons = new List<int>()
+            FragmentManager.BeginTransaction().Replace(Resource.Id.framelayout, new OpenWebFragment()).Commit();
+
+            var buttons = new List<int>()
             {
-                Resource.Id.imebtn_discover,
-                Resource.Id.imebtn_services,
-                Resource.Id.imebtn_numbers,
-                Resource.Id.imebtn_people,
-                Resource.Id.imebtn_venture
-            }.Select(x => FindViewById<ImageButton>(x)).ToList();
-
-            var index = 0;
-
-            new List<string>()
+                Resource.Id.btn_main,
+                Resource.Id.btn_stories,
+                Resource.Id.btn_contact
+            }.Select(x => FindViewById<Button>(x)).ToList();
+            
+            buttons.ForEach(x => x.Click += delegate
             {
-                "OneMinuteOpenWT.mp4",
-                "Service Offering.pdf",
-                "In the Numbers.pdf",
-                "People Behind.pdf",
-                "Joint Venture.pdf"
-            }.ForEach(x =>
-            {
-                imageButtons[index].Click += delegate
-                {
-                    this.StartActivityVideoOrPdf(x);
-                };
-
-                index++;
+                buttons.ForEach(y => y.SetTextColor(Color.Black));
+                x.SetTextColor(Color.Red);
             });
+
+            buttons[0].Click += delegate
+            {
+                FragmentManager.BeginTransaction().Replace(Resource.Id.framelayout, new OpenWebFragment()).Commit();
+            };
+
+            buttons[1].Click += delegate
+            {
+                FragmentManager.BeginTransaction().Replace(Resource.Id.framelayout, new StoriesFragment()).Commit();
+            };
+
+            buttons[2].Click += delegate
+            {
+                FragmentManager.BeginTransaction().Replace(Resource.Id.framelayout, new ContactFragment()).Commit();
+            };
+        }
+
+        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            FindViewById<ImageView>(Resource.Id.imev_card).SetImageBitmap((Bitmap)data.Extras.Get("data"));
         }
     }
 }
