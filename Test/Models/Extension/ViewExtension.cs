@@ -18,6 +18,16 @@ namespace Test.Models.Extension
         {
             var type = path.EndsWith(".pdf") ? typeof(PdfActivity) : typeof(VideoActivity);
             var intent = new Intent(view.Context, type);
+            intent.PutExtra("type", "1");
+            intent.PutExtra("uri", path);
+            view.Context.StartActivity(intent);
+        }
+
+        public static void StartActivityVideoOrPdfFromAssets(this View view, string path)
+        {
+            var type = path.EndsWith(".pdf") ? typeof(PdfActivity) : typeof(VideoActivity);
+            var intent = new Intent(view.Context, type);
+            intent.PutExtra("type", "2");
             intent.PutExtra("uri", path);
             view.Context.StartActivity(intent);
         }

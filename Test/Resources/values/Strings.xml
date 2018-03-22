@@ -18,7 +18,7 @@
   <string name="lastNameHint">Last Name *</string>
   <string name="companyHint">Company</string>
   <string name="positionHint">Position</string>
-  <string name="emailHint">Email Address</string>
+  <string name="emailHint">Email Address *</string>
   <string name="branchHint">Branch</string>
   <string name="note">COMMENTS / NOTES</string>
   <string name="send">Send</string>

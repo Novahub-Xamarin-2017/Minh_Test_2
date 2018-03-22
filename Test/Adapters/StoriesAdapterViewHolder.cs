@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -12,6 +11,8 @@ using Android.Widget;
 using Android.Support.V7.Widget;
 using Test.Models;
 using Android.Graphics.Drawables;
+using System;
+using Square.Picasso;
 
 namespace Test.Adapters
 {
@@ -27,7 +28,7 @@ namespace Test.Adapters
         {
             set
             {
-                imageButton.SetImageDrawable(Drawable.CreateFromStream(ItemView.Context.Assets.Open(value.Image), ""));
+                Picasso.With(ItemView.Context).Load(value.Image).Into(imageButton);
 
                 story = value;
             }

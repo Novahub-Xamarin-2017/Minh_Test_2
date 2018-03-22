@@ -17,19 +17,30 @@ using Android.Content;
 using Test.Fragments;
 using Android.Runtime;
 using Android.Content.Res;
+using Android.Content.PM;
 
 namespace Test
 {
-    [Activity(Label = "Test", Theme = "@android:style/Theme.Material.Light.NoActionBar", MainLauncher = true)]
+    [Activity(ScreenOrientation = ScreenOrientation.Landscape, Label = "Test", Theme = "@android:style/Theme.Material.Light.NoActionBar", MainLauncher = true)]
     public class MainActivity : Activity
     {
+        private OpenWebFragment openWebFragment;
+
+        private StoriesFragment storiesFragment;
+
+        private ContactFragment contactFragment;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.Main);
 
-            FragmentManager.BeginTransaction().Replace(Resource.Id.framelayout, new OpenWebFragment()).Commit();
+            openWebFragment = new OpenWebFragment();
+            storiesFragment = new StoriesFragment();
+            contactFragment = new ContactFragment();
+
+            FragmentManager.BeginTransaction().Replace(Resource.Id.framelayout, openWebFragment).Commit();
 
             var buttons = new List<int>()
             {
@@ -44,26 +55,23 @@ namespace Test
                 x.SetTextColor(Color.Red);
             });
 
-            buttons[0].Click += delegate
-            {
-                FragmentManager.BeginTransaction().Replace(Resource.Id.framelayout, new OpenWebFragment()).Commit();
-            };
-
-            buttons[1].Click += delegate
-            {
-                FragmentManager.BeginTransaction().Replace(Resource.Id.framelayout, new StoriesFragment()).Commit();
-            };
-
-            buttons[2].Click += delegate
-            {
-                FragmentManager.BeginTransaction().Replace(Resource.Id.framelayout, new ContactFragment()).Commit();
-            };
+            buttons.ForEach(x => x.Click += OnClick);
         }
 
-        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
+        private void OnClick(object sender, System.EventArgs e)
         {
-            base.OnActivityResult(requestCode, resultCode, data);
-            FindViewById<ImageView>(Resource.Id.imev_card).SetImageBitmap((Bitmap)data.Extras.Get("data"));
+            switch (((View)(sender)).Id)
+            {
+                case Resource.Id.btn_main:
+                    FragmentManager.BeginTransaction().Replace(Resource.Id.framelayout, openWebFragment).Commit();
+                    break;
+                case Resource.Id.btn_stories:
+                    FragmentManager.BeginTransaction().Replace(Resource.Id.framelayout, storiesFragment).Commit();
+                    break;
+                case Resource.Id.btn_contact:
+                    FragmentManager.BeginTransaction().Replace(Resource.Id.framelayout, contactFragment).Commit();
+                    break;
+            }
         }
     }
 }

@@ -42,7 +42,7 @@ namespace Test.Fragments
             {
                 imageButtons[index].Click += delegate
                 {
-                    view.StartActivityVideoOrPdf(x);
+                    view.StartActivityVideoOrPdfFromAssets(x);
                 };
 
                 index++;

@@ -13,12 +13,12 @@ using Newtonsoft.Json;
 
 namespace Test.Models
 {
-    public class Story
+    class Image
     {
-        [JsonProperty("imageUrl")]
-        public String Image { set; get; }
+        [JsonProperty("id")]
+        public long Id { get; set; }
 
-        [JsonProperty("documentUrl")]
-        public String Content { set; get; }
+        [JsonProperty("imageBase64")]
+        public string ImageBase64 { get; set; }
     }
 }

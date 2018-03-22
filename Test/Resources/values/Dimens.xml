@@ -4,6 +4,8 @@
   <dimen name="margin_medium">20dp</dimen>
   <dimen name="margin_large">120dp</dimen>
   <dimen name="margin_bottom">30dp</dimen>
+  <dimen name="margin_left">5dp</dimen>
+  <dimen name="margin_right">5dp</dimen>
 
   <dimen name="padding_medium">9dp</dimen>
   <dimen name="padding_large">20dp</dimen>

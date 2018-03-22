@@ -16,6 +16,7 @@ using Test.Models;
 using Test.Adapters;
 using Android.Support.V7.Widget;
 using Test.Models.Extension;
+using Test.Api;
 
 namespace Test.Fragments
 {
@@ -25,20 +26,16 @@ namespace Test.Fragments
         {
             var view = inflater.Inflate(Resource.Layout.StoriesFragment, container, false);
 
-            using (StreamReader stremReader = new StreamReader(view.Context.Assets.Open("stories.json")))
-            {
-                var content = stremReader.ReadToEnd();
-                var stories = JsonConvert.DeserializeObject<List<Story>>(content);
-                var adapter = new StoriesAdapter(stories);
-                var recyclerView = view.FindViewById<RecyclerView>(Resource.Id.rccv_stories);
-                recyclerView.SetLayoutManager(new LinearLayoutManager(view.Context, LinearLayoutManager.Horizontal, false));
-                recyclerView.SetAdapter(adapter);
+            var stories = Swagger.Instance.GetStory();
+            var adapter = new StoriesAdapter(stories);
+            var recyclerView = view.FindViewById<RecyclerView>(Resource.Id.rccv_stories);
+            recyclerView.SetLayoutManager(new LinearLayoutManager(view.Context, LinearLayoutManager.Horizontal, false));
+            recyclerView.SetAdapter(adapter);
 
-                adapter.StoryClick += (object sender, StoriesAdapterClickEventArgs e) =>
-                {
-                    view.StartActivityVideoOrPdf(e.Content);
-                };
-            }
+            adapter.StoryClick += (object sender, StoriesAdapterClickEventArgs e) =>
+            {
+                view.StartActivityVideoOrPdf(e.Content);
+            };
 
             return view;
         }

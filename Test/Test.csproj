@@ -59,6 +59,15 @@
     <Reference Include="PdfViewBinding, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xamarin.PdfView.Android.1.0.4\lib\PdfViewBinding.dll</HintPath>
     </Reference>
+    <Reference Include="Square.OkHttp, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Square.OkHttp.2.4.0.0\lib\MonoAndroid\Square.OkHttp.dll</HintPath>
+    </Reference>
+    <Reference Include="Square.OkIO, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Square.OkIO.1.5.0.0\lib\MonoAndroid\Square.OkIO.dll</HintPath>
+    </Reference>
+    <Reference Include="Square.Picasso, Version=2.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Square.Picasso.2.5.2.0\lib\MonoAndroid\Square.Picasso.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -89,13 +98,16 @@
     <Compile Include="Adapters\StoriesAdapter.cs" />
     <Compile Include="Adapters\StoriesAdapterClickEventArgs.cs" />
     <Compile Include="Adapters\StoriesAdapterViewHolder.cs" />
+    <Compile Include="Api\Swagger.cs" />
     <Compile Include="Fragments\ContactFragment.cs" />
     <Compile Include="Fragments\OpenWebFragment.cs" />
     <Compile Include="Fragments\StoriesFragment.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MenuFragment.cs" />
+    <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Extension\ActivityExtension.cs" />
     <Compile Include="Models\Extension\ViewExtension.cs" />
+    <Compile Include="Models\Image.cs" />
     <Compile Include="Models\Story.cs" />
     <Compile Include="PdfActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />

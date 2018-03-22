@@ -14,10 +14,11 @@ using Android.Util;
 using static Android.Media.MediaPlayer;
 using Java.Lang;
 using Android.Net;
+using Android.Content.PM;
 
 namespace Test
 {
-    [Activity(Label = "VideoActivity", Theme = "@android:style/Theme.Material.Light.NoActionBar")]
+    [Activity(LaunchMode = LaunchMode.SingleInstance, ScreenOrientation = ScreenOrientation.Landscape, Label = "VideoActivity", Theme = "@android:style/Theme.Material.Light.NoActionBar.Fullscreen")]
     public class VideoActivity : Activity, ISurfaceHolderCallback
     {
         private MediaPlayer mediaPlayer;
@@ -40,19 +41,32 @@ namespace Test
         {
             base.OnCreate(savedInstanceState);
 
-            SetContentView(Resource.Layout.Video);
+            var type = Intent.GetStringExtra("type");
 
-            this.SetButtonBack();
+            if (type.Equals("1"))
+            {
+                var video = new VideoView(this);
+                SetContentView(video);
 
-            var videoView = FindViewById<VideoView>(Resource.Id.vdv_story);
-            var holder = videoView.Holder;
-            holder.AddCallback(this);
+                var url = Intent.GetStringExtra("uri");
+                video.SetVideoPath(url);
+                video.SetMediaController(new MediaController(this));
+                video.Start();
+            }
+            else
+            {
+                SetContentView(Resource.Layout.Video);
 
-            var descriptor = Assets.OpenFd("m.mp4");
-            mediaPlayer = new MediaPlayer();
-            mediaPlayer.SetDataSource(descriptor.FileDescriptor, descriptor.StartOffset, descriptor.Length);
-            mediaPlayer.Prepare();
-            mediaPlayer.Start();
+                var videoView = FindViewById<VideoView>(Resource.Id.vdv_story);
+                var holder = videoView.Holder;
+                holder.AddCallback(this);
+
+                var descriptor = Assets.OpenFd("m.mp4");
+                mediaPlayer = new MediaPlayer();
+                mediaPlayer.SetDataSource(descriptor.FileDescriptor, descriptor.StartOffset, descriptor.Length);
+                mediaPlayer.Prepare();
+                mediaPlayer.Start();
+            }
         }
     }
 }
