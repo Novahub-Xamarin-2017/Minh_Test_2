@@ -106,8 +106,8 @@
     <Compile Include="MenuFragment.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Extension\ActivityExtension.cs" />
-    <Compile Include="Models\Extension\ViewExtension.cs" />
     <Compile Include="Models\Image.cs" />
+    <Compile Include="Models\OwtTile.cs" />
     <Compile Include="Models\Story.cs" />
     <Compile Include="PdfActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -115,13 +115,6 @@
     <Compile Include="VideoActivity.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\stories.json" />
-    <AndroidAsset Include="Assets\In the Numbers.pdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </AndroidAsset>
-    <AndroidAsset Include="Assets\Joint Venture.pdf" />
-    <AndroidAsset Include="Assets\People Behind.pdf" />
-    <AndroidAsset Include="Assets\Service Offering.pdf" />
     <None Include="GettingStarted.Xamarin" />
     <AndroidNativeLibrary Include="lib\arm64-v8a\libvudroid.so">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -211,39 +204,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\sicpa.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\01_genolier%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\02_ubs%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\03_atupri%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\04_firmenich%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\05_wingo%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\06_nestle%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\07_pictet%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\08_hermes%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\09_sicpa%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\10_adama%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\m.mp4" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\back.png" />

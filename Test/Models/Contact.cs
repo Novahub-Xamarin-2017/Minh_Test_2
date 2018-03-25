@@ -15,6 +15,9 @@ namespace Test.Models
 {
     class Contact
     {
+        [JsonProperty("token")]
+        private string Token = "v5?1Q$Q974-tE_i1K!_!7qoiEo_?4@-35ptR57tedi66Mx-Duqm-2?x$j@zX6@U";
+
         [JsonProperty("reason")]
         public string Reason { get; set; }
 
@@ -41,9 +44,6 @@ namespace Test.Models
 
         [JsonProperty("comments")]
         public string Comments { get; set; }
-
-        [JsonProperty("token")]
-        public string Token { get; set; }
 
         [JsonProperty("images")]
         public List<Image> Images { get; set; }

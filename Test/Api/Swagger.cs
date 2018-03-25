@@ -26,11 +26,23 @@ namespace Test.Api
 
         public static Swagger Instance => instance ?? (instance = new Swagger());
 
+        private Swagger()
+        {
+
+        }
+
         public List<Story> GetStory()
         {
             var respone = webClient.DownloadString(root + "/Story");
 
             return JsonConvert.DeserializeObject<List<Story>>(respone);
+        }
+
+        public List<OwtTile> GetOwtTile()
+        {
+            var respone = webClient.DownloadString(root + "/OwtTile");
+
+            return JsonConvert.DeserializeObject<List<OwtTile>>(respone);
         }
 
         public void PostContact(Contact contact)

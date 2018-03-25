@@ -14,12 +14,12 @@ namespace Test.Models.Extension
 {
     public static class ActivityExtension
     {
-        public static void StartActivityVideoOrPdf(this Activity activity, string path)
+        public static void StartActivityVideoOrPdf(this Context context, string path)
         {
-            var type = path.EndsWith(".pdf") ? typeof(PdfActivity) : typeof(VideoActivity);
-            var intent = new Intent(activity, type);
+            var type = path.ToLower().EndsWith(".pdf") ? typeof(PdfActivity) : typeof(VideoActivity);
+            var intent = new Intent(context, type);
             intent.PutExtra("uri", path);
-            activity.StartActivity(intent);
+            context.StartActivity(intent);
         }
 
         public static void SetButtonBack(this Activity activity)

@@ -41,32 +41,13 @@ namespace Test
         {
             base.OnCreate(savedInstanceState);
 
-            var type = Intent.GetStringExtra("type");
+            var video = new VideoView(this);
+            SetContentView(video);
 
-            if (type.Equals("1"))
-            {
-                var video = new VideoView(this);
-                SetContentView(video);
-
-                var url = Intent.GetStringExtra("uri");
-                video.SetVideoPath(url);
-                video.SetMediaController(new MediaController(this));
-                video.Start();
-            }
-            else
-            {
-                SetContentView(Resource.Layout.Video);
-
-                var videoView = FindViewById<VideoView>(Resource.Id.vdv_story);
-                var holder = videoView.Holder;
-                holder.AddCallback(this);
-
-                var descriptor = Assets.OpenFd("m.mp4");
-                mediaPlayer = new MediaPlayer();
-                mediaPlayer.SetDataSource(descriptor.FileDescriptor, descriptor.StartOffset, descriptor.Length);
-                mediaPlayer.Prepare();
-                mediaPlayer.Start();
-            }
+            var url = Intent.GetStringExtra("uri");
+            video.SetVideoPath(url);
+            video.SetMediaController(new MediaController(this));
+            video.Start();
         }
     }
 }

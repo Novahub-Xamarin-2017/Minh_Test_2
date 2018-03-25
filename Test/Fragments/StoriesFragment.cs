@@ -34,7 +34,7 @@ namespace Test.Fragments
 
             adapter.StoryClick += (object sender, StoriesAdapterClickEventArgs e) =>
             {
-                view.StartActivityVideoOrPdf(e.Content);
+                view.Context.StartActivityVideoOrPdf(e.Content);
             };
 
             return view;

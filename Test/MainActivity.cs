@@ -24,21 +24,17 @@ namespace Test
     [Activity(ScreenOrientation = ScreenOrientation.Landscape, Label = "Test", Theme = "@android:style/Theme.Material.Light.NoActionBar", MainLauncher = true)]
     public class MainActivity : Activity
     {
-        private OpenWebFragment openWebFragment;
+        private OpenWebFragment openWebFragment = new OpenWebFragment();
 
-        private StoriesFragment storiesFragment;
+        private StoriesFragment storiesFragment = new StoriesFragment();
 
-        private ContactFragment contactFragment;
+        private ContactFragment contactFragment = new ContactFragment();
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.Main);
-
-            openWebFragment = new OpenWebFragment();
-            storiesFragment = new StoriesFragment();
-            contactFragment = new ContactFragment();
 
             FragmentManager.BeginTransaction().Replace(Resource.Id.framelayout, openWebFragment).Commit();
 
@@ -48,7 +44,7 @@ namespace Test
                 Resource.Id.btn_stories,
                 Resource.Id.btn_contact
             }.Select(x => FindViewById<Button>(x)).ToList();
-            
+
             buttons.ForEach(x => x.Click += delegate
             {
                 buttons.ForEach(y => y.SetTextColor(Color.Black));
@@ -63,15 +59,20 @@ namespace Test
             switch (((View)(sender)).Id)
             {
                 case Resource.Id.btn_main:
-                    FragmentManager.BeginTransaction().Replace(Resource.Id.framelayout, openWebFragment).Commit();
+                    ReplaceFragment(openWebFragment);
                     break;
                 case Resource.Id.btn_stories:
-                    FragmentManager.BeginTransaction().Replace(Resource.Id.framelayout, storiesFragment).Commit();
+                    ReplaceFragment(storiesFragment);
                     break;
                 case Resource.Id.btn_contact:
-                    FragmentManager.BeginTransaction().Replace(Resource.Id.framelayout, contactFragment).Commit();
+                    ReplaceFragment(contactFragment);
                     break;
             }
+        }
+
+        private void ReplaceFragment(Fragment fragment)
+        {
+            FragmentManager.BeginTransaction().Replace(Resource.Id.framelayout, fragment).Commit();
         }
     }
 }

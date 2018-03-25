@@ -44,13 +44,21 @@ namespace Test.Fragments
 
         private string reason;
 
-        private string imageBase64;
+        private readonly List<string> reasons = new List<string>()
+        {
+            "DIGITAL_PROJET",
+            "JOB_OR_MASTER_THESIS",
+            "SAY_HI",
+            "OTHER"
+        };
 
-        private Contact contact = new Contact();
+        private string imageBase64;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             view = inflater.Inflate(Resource.Layout.ContactFragment, container, false);
+
+            Init();
 
             view.FindViewById<ImageButton>(Resource.Id.imebtn_takecard).Click += delegate
             {
@@ -58,6 +66,15 @@ namespace Test.Fragments
                 StartActivityForResult(intent, 0);
             };
 
+            view.FindViewById<Button>(Resource.Id.buttonSend).Click += ButtonSend_Click;
+
+            checkBoxs.ForEach(x => x.Click += CheckBox_Click);
+
+            return view;
+        }
+
+        private void Init()
+        {
             checkBoxs = new List<int>()
             {
                 Resource.Id.checkBoxReason1,
@@ -65,10 +82,6 @@ namespace Test.Fragments
                 Resource.Id.checkBoxReason3,
                 Resource.Id.checkBoxReason4
             }.Select(x => view.FindViewById<CheckBox>(x)).ToList();
-
-            checkBoxs.ForEach(x => x.Click += CheckBox_Click);
-
-            view.FindViewById<Button>(Resource.Id.buttonSend).Click += ButtonSend_Click;
 
             firstName = view.FindViewById<EditText>(Resource.Id.textViewFirstName);
             lastName = view.FindViewById<EditText>(Resource.Id.textViewLastName);
@@ -79,31 +92,32 @@ namespace Test.Fragments
             comments = view.FindViewById<EditText>(Resource.Id.textViewComments);
 
             spinner = view.FindViewById<Spinner>(Resource.Id.spinner1);
-            spinner.Adapter = new ArrayAdapter<string>(view.Context, Android.Resource.Layout.SimpleSpinnerItem, new string[] { "Frédéric", "Markus", "Paul", "Kay", "Joël", "Pascal", "Mike", "Hoa Vo" });
-
-            return view;
+            var persons = new string[] { "Frédéric", "Markus", "Paul", "Kay", "Joël", "Pascal", "Mike", "Hoa Vo" };
+            spinner.Adapter = new ArrayAdapter<string>(view.Context, Android.Resource.Layout.SimpleSpinnerItem, persons);
         }
 
         private void ButtonSend_Click(object sender, EventArgs e)
         {
-            if (Check())
+            if (ValueIsNotEmpty())
             {
-                contact.Reason = reason;
-                contact.HelloTo = checkBoxs[2].Checked ? spinner.SelectedItem.ToString() : "";
-                contact.FirstName = firstName.Text;
-                contact.LastName = lastName.Text;
-                contact.Email = email.Text;
-                contact.Company = company.Text;
-                contact.Position = position.Text;
-                contact.Industry = branch.Text;
-                contact.Comments = comments.Text;
-                contact.Token = "v5?1Q$Q974-tE_i1K!_!7qoiEo_?4@-35ptR57tedi66Mx-Duqm-2?x$j@zX6@U";
-                contact.Images = string.IsNullOrEmpty(imageBase64) ? new List<Image>() : new List<Image>
+                var contact = new Contact()
                 {
-                    new Image
+                    Reason = reason,
+                    HelloTo = checkBoxs[2].Checked ? spinner.SelectedItem.ToString() : "",
+                    FirstName = firstName.Text,
+                    LastName = lastName.Text,
+                    Email = email.Text,
+                    Company = company.Text,
+                    Position = position.Text,
+                    Industry = branch.Text,
+                    Comments = comments.Text,
+                    Images = string.IsNullOrEmpty(imageBase64) ? new List<Image>() : new List<Image>
                     {
-                        Id = 0,
-                        ImageBase64 = imageBase64
+                        new Image
+                        {
+                            Id = 0,
+                            ImageBase64 = imageBase64
+                        }
                     }
                 };
 
@@ -123,36 +137,41 @@ namespace Test.Fragments
             }
         }
 
-        private bool Check() => checkBoxs.Any(x => x.Checked) && !string.IsNullOrEmpty(firstName.Text) && !string.IsNullOrEmpty(lastName.Text) && !string.IsNullOrEmpty(email.Text);
+        private bool ValueIsNotEmpty() => checkBoxs.Any(x => x.Checked) 
+            && !string.IsNullOrEmpty(firstName.Text) 
+            && !string.IsNullOrEmpty(lastName.Text) 
+            && !string.IsNullOrEmpty(email.Text);
 
-        private void InitCheckBoxs()
+        private void UncheckAllCheckBoxs()
         {
             checkBoxs.ForEach(x => x.Checked = false);
         }
 
         private void CheckBox_Click(object sender, EventArgs e)
         {
-            InitCheckBoxs();
+            UncheckAllCheckBoxs();
 
-            switch(((View)sender).Id)
+            switch (((View)sender).Id)
             {
                 case Resource.Id.checkBoxReason1:
-                    reason = "DIGITAL_PROJET";
-                    checkBoxs[0].Checked = true;
+                    SetReasonAndSetCheckBox(0);
                     break;
                 case Resource.Id.checkBoxReason2:
-                    reason = "JOB_OR_MASTER_THESIS";
-                    checkBoxs[1].Checked = true;
+                    SetReasonAndSetCheckBox(1);
                     break;
                 case Resource.Id.checkBoxReason3:
-                    checkBoxs[2].Checked = true;
-                    reason = "SAY_HI";
+                    SetReasonAndSetCheckBox(2);
                     break;
                 case Resource.Id.checkBoxReason4:
-                    reason = "OTHER";
-                    checkBoxs[3].Checked = true;
+                    SetReasonAndSetCheckBox(3);
                     break;
             }
+        }
+
+        private void SetReasonAndSetCheckBox(int index)
+        {
+            reason = reasons[index];
+            checkBoxs[index].Checked = true;
         }
 
         public override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)

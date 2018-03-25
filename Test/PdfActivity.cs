@@ -23,25 +23,12 @@ namespace Test
         {
             base.OnCreate(savedInstanceState);
 
-            var type = Intent.GetStringExtra("type");
-
-            if (type.Equals("1"))
-            {
-                var webView = new WebView(this);
-                webView.Settings.JavaScriptEnabled = true;
-                SetContentView(webView);
-                var root = "https://drive.google.com/viewerng/viewer?url=";
-                var url = root + Intent.GetStringExtra("uri");
-                webView.LoadUrl(url);
-            }
-            else
-            {
-                SetContentView(Resource.Layout.Pdf);
-                this.SetButtonBack();
-
-                FindViewById<PDFView>(Resource.Id.pdfv_story).FromAsset(Intent.GetStringExtra("uri"))
-                        .Load();
-            }
+            var webView = new WebView(this);
+            webView.Settings.JavaScriptEnabled = true;
+            SetContentView(webView);
+            var root = "https://drive.google.com/viewerng/viewer?url=";
+            var url = root + Intent.GetStringExtra("uri");
+            webView.LoadUrl(url);
         }
     }
 }
